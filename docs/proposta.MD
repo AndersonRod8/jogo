@@ -1,286 +1,115 @@
-# Proposta Inicial do Jogo
+# Proposta Inicial do Jogo  
 
-Este documento deve ser preenchido pelo grupo na Semana 1 do projeto.
+O grupo pretende desenvolver um jogo inspirado no clássico Pong utilizando Python e a biblioteca Pygame. O jogo será composto por duas barras controladas pelos jogadores e uma bola que se movimenta pela tela. O objetivo é rebater a bola e impedir que ela ultrapasse a área de defesa do jogador, enquanto se tenta marcar pontos no adversário.
 
-A proposta deve apresentar uma ideia simples, clara e viável para ser desenvolvida com Python e Pygame dentro do prazo disponível.
+A proposta foi escolhida por apresentar um escopo viável para o tempo disponível do projeto, permitindo a aplicação de conceitos fundamentais de programação, como movimentação de objetos, detecção de colisões, controle de eventos do teclado, sistema de pontuação e organização modular do código.
+
+Inicialmente, o jogo contará com um modo para dois jogadores, placar em tempo real e tela de encerramento ao final da partida. Caso haja tempo disponível, poderão ser adicionados recursos extras, como efeitos sonoros, menu inicial, aumento progressivo da dificuldade e melhorias visuais.
+
 
 ## 1. Nome provisório do jogo
 
-Escreva aqui o nome provisório do jogo.
-
-Exemplo:
-
-> Corrida dos Obstáculos
+Pong Arena PUC
 
 ## 2. Integrantes do grupo
 
 Liste os integrantes do grupo.
 
-- Nome 1:
-- Nome 2:
-- Nome 3:
-- Nome 4:
+- Anderson José Rodrigues Leal
+- Kauã Rodrigues da Silva
+- Maria Eduarda Madeira Santana
+- Thales Pereira Leite
 
 ## 3. Tipo de jogo
 
-Indique o tipo de jogo que será desenvolvido.
-
-Exemplos:
-
-- jogo de desviar de obstáculos;
-- jogo de coleta de itens;
-- labirinto simples;
-- jogo de perguntas e respostas;
-- jogo de memória;
-- Pong;
-- Snake;
-- Breakout;
-- nave desviando de meteoros;
-- corrida simples com obstáculos;
-- jogo de clique rápido;
-- jogo de sobrevivência simples.
-
-Tipo escolhido pelo grupo:
-
-> Escreva aqui.
+> Pong
 
 ## 4. Descrição geral do jogo
 
-Explique, em poucas linhas, como o jogo funcionará.
-
-Procure responder:
-
-- O que aparece na tela?
-- O que o jogador controla?
-- O que o jogador precisa fazer?
-- Quais desafios aparecem durante a partida?
-
-Descrição:
-
-> Escreva aqui.
+> O jogo será baseado no clássico Pong. Dois jogadores controlarão barras laterais na tela e deverão rebater uma bola que se movimenta continuamente. O objetivo é impedir que a bola ultrapasse sua área de defesa enquanto tenta marcar pontos no adversário. A velocidade da bola pode aumentar ao longo da partida, tornando o jogo mais desafiador.
 
 ## 5. Objetivo do jogador
 
-Explique qual é o objetivo principal do jogador.
-
-Exemplos:
-
-- coletar o maior número possível de itens;
-- sobreviver pelo maior tempo possível;
-- chegar até o final do labirinto;
-- acertar alvos;
-- responder perguntas corretamente;
-- evitar obstáculos;
-- quebrar todos os blocos.
-
-Objetivo:
-
-> Escreva aqui.
+> Marcar mais pontos que o adversário ao fazer a bola ultrapassar a barra de defesa do oponente.
 
 ## 6. Regras principais
 
-Liste as principais regras do jogo.
-
-Exemplo:
-
-- O jogador começa com 3 vidas.
-- Cada moeda coletada vale 10 pontos.
-- Cada colisão com obstáculo remove 1 vida.
-- A partida termina quando as vidas chegam a zero.
-- O jogador vence se alcançar 100 pontos.
-
-Regras do grupo:
-
-- Regra 1:
-- Regra 2:
-- Regra 3:
-- Regra 4:
-- Regra 5:
+- Regra 1: Cada jogador controla uma barra vertical.
+- Regra 2: A bola deve ser rebatida pelas barras.
+- Regra 3: Quando a bola ultrapassa uma barra, o adversário ganha um ponto.
+- Regra 4: Após cada ponto, a bola retorna ao centro da tela.
+- Regra 5: Vence o jogador que atingir a pontuação definida primeiro.
 
 ## 7. Condição de vitória
 
-Explique como o jogador vence ou conclui o jogo.
-
-Exemplos:
-
-- atingir determinada pontuação;
-- chegar ao final da fase;
-- sobreviver até o tempo acabar;
-- responder uma quantidade mínima de perguntas;
-- quebrar todos os blocos.
-
-Condição de vitória:
-
-> Escreva aqui.
+> O jogador vence ao alcançar 10 pontos antes do adversário.
 
 ## 8. Condição de derrota ou encerramento
 
-Explique como o jogador perde ou quando a partida termina.
-
-Exemplos:
-
-- perder todas as vidas;
-- acabar o tempo;
-- colidir com determinado obstáculo;
-- errar muitas perguntas;
-- deixar a bola cair, no caso de Breakout ou Pong.
-
-Condição de derrota ou encerramento:
-
-> Escreva aqui.
+> A partida termina quando um dos jogadores atingir a pontuação máxima estabelecida para a vitória.
 
 ## 9. Elementos previstos no jogo
 
-Descreva os principais elementos que farão parte do jogo.
+Duas barras verticais controladas pelos jogadores através do teclado.
 
 ## Jogador ou elemento principal
 
-Exemplo:
-
-> Um personagem controlado pelas setas do teclado.
-
-Descrição:
-
-> Escreva aqui.
+> Duas barras verticais controladas pelos jogadores através do teclado.
 
 ## Obstáculos, inimigos ou desafios
 
-Exemplo:
-
-> Obstáculos aparecem em posições aleatórias e devem ser evitados.
-
-Descrição:
-
-> Escreva aqui.
+> O principal desafio será acompanhar o movimento da bola e reagir rapidamente para impedir que ela ultrapasse a barra de defesa.
 
 ## Itens, alvos ou objetos de interação
 
-Exemplo:
-
-> Moedas aparecem na tela e aumentam a pontuação quando coletadas.
-
-Descrição:
-
-> Escreva aqui.
+> A bola é o principal objeto de interação, quicando nas barras e nas bordas superior e inferior da tela.
 
 ## Pontuação, vidas, tempo ou progresso
 
-Exemplo:
-
-> O jogador começa com 3 vidas e ganha 10 pontos por item coletado.
-
-Descrição:
-
-> Escreva aqui.
+> Cada vez que um jogador marca um ponto, sua pontuação aumenta em uma unidade. O placar ficará visível durante toda a partida.
 
 ## 10. Controles previstos
 
-Informe os comandos que serão utilizados pelo jogador.
-
-Exemplo:
-
-- Seta para cima: mover para cima
-- Seta para baixo: mover para baixo
-- Seta para esquerda: mover para esquerda
-- Seta para direita: mover para direita
-- Espaço: realizar ação
-- ESC: sair do jogo
-
 Controles do grupo:
 
-- Tecla/comando:
-- Tecla/comando:
-- Tecla/comando:
+- W e S: mover a barra do jogador 1 para cima e para baixo.
+- Seta: Seta para cima e seta para baixo, mover a barra do jogador 2.
+- ESC: sair do jogo.
 
 ## 11. Organização inicial do código
 
-Explique como o grupo pretende organizar o código.
+Organização planejada.
 
-Exemplo:
+>
 
-- `main.py`: inicia o jogo;
-- `src/jogo.py`: contém o loop principal;
-- `src/config.py`: guarda configurações como tamanho da tela e cores;
-- `src/funcoes.py`: contém funções auxiliares;
-- `src/dados.py`: contém funções de leitura e escrita de arquivos.
-
-Organização planejada:
-
-> Escreva aqui.
-
+- `main.py`: inicia o jogo e executa o loop principal;
+- `src/jogo.py`: controla a movimentação e colisões da bola;
+- `src/config.py`: controla as barras dos jogadores;
+- `src/funcoes.py`: armazena configurações como tamanho da tela, cores e velocidade;
+- `src/dados.py`: gerencia a pontuação e exibição do placar.
 
 ## 12. Recursos externos previstos
 
-Informe se o grupo pretende utilizar imagens, sons, fontes, tutoriais ou códigos externos.
-
-Exemplo:
-
-- imagens obtidas de banco gratuito;
-- sons gratuitos;
-- tutorial usado apenas como referência;
-- fonte personalizada.
-
-Recursos previstos:
-
-> Escreva aqui.
-
-Caso não pretenda utilizar recursos externos, escreva:
-
-> Não pretendemos utilizar recursos externos.
+> Pretendemos utilizar sons gratuitos para colisões e pontuação, além de tutoriais como referência para implementação de funcionalidades no Pygame.
 
 ## 13. Principais dificuldades esperadas
 
-Liste as dificuldades que o grupo acredita que poderá enfrentar.
-
-Exemplos:
-
-- movimentação do jogador;
-- colisão entre objetos;
-- controle de tempo;
-- criação do ranking;
-- organização do código;
-- uso do GitHub;
-- testes;
-- exibição de textos na tela.
-
 Dificuldades previstas:
 
-- Dificuldade 1:
-- Dificuldade 2:
-- Dificuldade 3:
+- Dificuldade 1: Implementar corretamente as colisões entre a bola e as barras.
+- Dificuldade 2: Controlar a movimentação da bola de forma fluida.
+- Dificuldade 3: Organizar o código e integrar as diferentes partes do projeto.
 
 ## 14. Escopo mínimo para a entrega final
 
-Descreva qual será a versão mínima aceitável do jogo.
-
-Esta seção é importante para evitar que o grupo escolha uma ideia grande demais.
-
-Exemplo:
-
-> A versão mínima do jogo terá um personagem controlado pelo teclado, obstáculos aparecendo na tela, sistema de vidas, sistema de pontuação e tela de fim de jogo.
-
 Escopo mínimo:
 
-> Escreva aqui.
+> A versão mínima do jogo terá duas barras controladas pelo teclado, uma bola em movimento, sistema de colisão, placar funcional e tela de fim de partida quando um jogador atingir a pontuação necessária para vencer.
 
 ## 15. Possíveis melhorias, caso haja tempo
 
-Liste funcionalidades extras que o grupo poderá implementar se conseguir concluir o escopo mínimo.
-
-Exemplos:
-
-- tela inicial;
-- sons;
-- fases;
-- aumento de dificuldade;
-- ranking;
-- animações;
-- novos tipos de obstáculos;
-- diferentes personagens;
-- menu de pausa.
-
 Melhorias possíveis:
 
-- Melhoria 1:
-- Melhoria 2:
-- Melhoria 3:
+- Melhoria 1: Menu inicial e tela de pausa.
+- Melhoria 2: Aumento gradual da velocidade da bola durante a partida.
+- Melhoria 3: Efeitos sonoros e elementos visuais mais elaborados.

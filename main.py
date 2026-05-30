@@ -1,6 +1,15 @@
-from src.jogo import executar_jogo
+"""
+Ponto de entrada da aplicação Pong
+"""
+import pygame
+from src.game import Game
 
+def main():
+    """Inicializa e executa o jogo"""
+    pygame.init()
+    game = Game()
+    game.run()
+    pygame.quit()
 
 if __name__ == "__main__":
-    # Ponto de entrada da aplicação.
-    executar_jogo()
+    main()
