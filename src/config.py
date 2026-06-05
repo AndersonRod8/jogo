@@ -1,13 +1,19 @@
-# Configurações centrais do jogo (tela, cores e caminhos de arquivos).
-LARGURA_TELA = 800
-ALTURA_TELA = 600
-FPS = 60
+# src/config.py
+import pygame
+from src.funcoes import ALTURA
 
-TITULO_JOGO = "Projeto Final - Pygame"
+def mover_barra_1(teclas, y, velocidade, altura_barra):
+    """Controla a barra do Jogador 1 (W e S)."""
+    if teclas[pygame.K_w] and y > 0:
+        y -= velocidade
+    if teclas[pygame.K_s] and y < ALTURA - altura_barra:
+        y += velocidade
+    return y
 
-BRANCO = (255, 255, 255)
-PRETO = (0, 0, 0)
-CINZA = (212,212,212)
-
-CAMINHO_RECORDE = "data/recorde.txt"
-CAMINHO_SPRITES = "assets/imagens/spritesheet.bmp"
+def mover_barra_2(teclas, y, velocidade, altura_barra):
+    """Controla a barra do Jogador 2 (Setas Cima e Baixo)."""
+    if teclas[pygame.K_UP] and y > 0:
+        y -= velocidade
+    if teclas[pygame.K_DOWN] and y < ALTURA - altura_barra:
+        y += velocidade
+    return y
