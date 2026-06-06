@@ -46,7 +46,7 @@ def main():
 
         teclas = pygame.key.get_pressed()
 
-        # 2. Lógica e Atualização
+        # 2. Movimentação e Atualização
         p1_y = mover_barra_1(teclas, p1_y, vel_barra, altura_barra)
         p2_y = mover_barra_2(teclas, p2_y, vel_barra, altura_barra)
 
@@ -59,7 +59,7 @@ def main():
 
         marcou_ponto, pontos_1, pontos_2 = verificar_ponto(bola_x, tamanho_bola, pontos_1, pontos_2)
         if marcou_ponto:
-            # Reposiciona a bola no centro após um ponto
+            # Bola é reposicionada ao centro após adversário marcar 1 ponto
             bola_x, bola_y = LARGURA // 2 - tamanho_bola // 2, ALTURA // 2 - tamanho_bola // 2
             bola_vel_x *= -1 
 

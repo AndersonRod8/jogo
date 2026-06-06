@@ -1,6 +1,7 @@
 # src/dados.py
 from src.funcoes import LARGURA, BRANCO
 
+# placar
 def desenhar_placar(tela, fonte, pontos_1, pontos_2):
     """Renderiza a pontuação no topo do ecrã."""
     texto_p1 = fonte.render(str(pontos_1), True, BRANCO)
@@ -9,6 +10,7 @@ def desenhar_placar(tela, fonte, pontos_1, pontos_2):
     tela.blit(texto_p1, (LARGURA // 4, 30))
     tela.blit(texto_p2, (LARGURA * 3 // 4, 30))
 
+# atualização do placar
 def verificar_ponto(bola_x, tamanho, pontos_1, pontos_2):
     """Verifica se a bola saiu pelas laterais e atualiza os pontos."""
     if bola_x <= 0:
