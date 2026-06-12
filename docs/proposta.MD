@@ -76,9 +76,6 @@ Controles do grupo:
 
 ## 11. Organização inicial do código
 
-Organização planejada.
-
->
 
 - `main.py`: inicia o jogo e executa o loop principal;
 - `src/jogo.py`: controla a movimentação e colisões da bola;
@@ -100,13 +97,10 @@ Dificuldades previstas:
 
 ## 14. Escopo mínimo para a entrega final
 
-Escopo mínimo:
 
 > A versão mínima do jogo terá duas barras controladas pelo teclado, uma bola em movimento, sistema de colisão, placar funcional e tela de fim de partida quando um jogador atingir a pontuação necessária para vencer.
 
 ## 15. Possíveis melhorias, caso haja tempo
-
-Melhorias possíveis:
 
 - Melhoria 1: Menu inicial e tela de pausa.
 - Melhoria 2: Aumento gradual da velocidade da bola durante a partida.
