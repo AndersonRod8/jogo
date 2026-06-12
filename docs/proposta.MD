@@ -13,8 +13,6 @@ Pong Arena PUC
 
 ## 2. Integrantes do grupo
 
-Liste os integrantes do grupo.
-
 - Anderson José Rodrigues Leal
 - Kauã Rodrigues da Silva
 - Maria Eduarda Madeira Santana
