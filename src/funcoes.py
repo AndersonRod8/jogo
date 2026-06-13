@@ -1,6 +1,6 @@
 # src/funcoes.py
 
-# Configurações do Ecrã
+# Configurações do Ecrã/Tela
 LARGURA = 800
 ALTURA = 600
 
