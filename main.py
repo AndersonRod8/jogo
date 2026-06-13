@@ -2,22 +2,22 @@
 import pygame
 import sys
 
-# Importações dos módulos organizados na pasta src
 from src.funcoes import LARGURA, ALTURA, PRETO, BRANCO, FPS
 from src.config import mover_barra_1, mover_barra_2
 from src.jogo import mover_bola
-from src.dados import desenhar_placar, verificar_ponto
+from src.dados import desenhar_placar, verificar_ponto, salvar_historico
 from src.sprites import desenhar_barra, desenhar_bola
 
 def main():
     # Inicializa o Pygame
     pygame.init()
-    
-    # Configuração da janela
     tela = pygame.display.set_mode((LARGURA, ALTURA))
-    pygame.display.set_caption("O Meu Primeiro Pong")
+    pygame.display.set_caption("Pong - Trabalho Final")
     relogio = pygame.time.Clock()
+    
+    # Fontes de texto
     fonte = pygame.font.Font(None, 74)
+    fonte_menor = pygame.font.Font(None, 36)
 
     # Configurações das Barras
     largura_barra, altura_barra = 15, 100
@@ -30,13 +30,15 @@ def main():
     bola_x, bola_y = LARGURA // 2 - tamanho_bola // 2, ALTURA // 2 - tamanho_bola // 2
     bola_vel_x, bola_vel_y = 5, 5
 
-    # Placar Inicial
+    # Estado Inicial do Jogo
     pontos_1, pontos_2 = 0, 0
+    pontos_para_vencer = 20  # Atualizado para 20 pontos
+    jogo_acabou = False
+    historico_salvo = False
 
-    # Ciclo Principal do Jogo (Loop)
+    # Ciclo Principal (Game Loop)
     rodando = True
     while rodando:
-        # 1. Tratamento de Eventos
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 rodando = False
@@ -45,37 +47,46 @@ def main():
                     rodando = False
 
         teclas = pygame.key.get_pressed()
-
-        # 2. Movimentação e Atualização
-        p1_y = mover_barra_1(teclas, p1_y, vel_barra, altura_barra)
-        p2_y = mover_barra_2(teclas, p2_y, vel_barra, altura_barra)
-
-        p1_rect = pygame.Rect(p1_x, p1_y, largura_barra, altura_barra)
-        p2_rect = pygame.Rect(p2_x, p2_y, largura_barra, altura_barra)
-
-        bola_x, bola_y, bola_vel_x, bola_vel_y = mover_bola(
-            bola_x, bola_y, bola_vel_x, bola_vel_y, tamanho_bola, p1_rect, p2_rect
-        )
-
-        marcou_ponto, pontos_1, pontos_2 = verificar_ponto(bola_x, tamanho_bola, pontos_1, pontos_2)
-        if marcou_ponto:
-            # Bola é reposicionada ao centro após adversário marcar 1 ponto
-            bola_x, bola_y = LARGURA // 2 - tamanho_bola // 2, ALTURA // 2 - tamanho_bola // 2
-            bola_vel_x *= -1 
-
-        # 3. Renderização (Desenhar no Ecrã)
         tela.fill(PRETO)
-        
-        # Linha central divisória
-        pygame.draw.aaline(tela, BRANCO, (LARGURA // 2, 0), (LARGURA // 2, ALTURA))
 
-        # Funções importadas de src/sprites.py
-        desenhar_barra(tela, p1_x, p1_y, largura_barra, altura_barra)
-        desenhar_barra(tela, p2_x, p2_y, largura_barra, altura_barra)
-        desenhar_bola(tela, bola_x, bola_y, tamanho_bola)
-        
-        # Função importada de src/dados.py
-        desenhar_placar(tela, fonte, pontos_1, pontos_2)
+        # O JOGO ACONTECE AQUI
+        if not jogo_acabou:
+            p1_y = mover_barra_1(teclas, p1_y, vel_barra, altura_barra)
+            p2_y = mover_barra_2(teclas, p2_y, vel_barra, altura_barra)
+
+            p1_rect = pygame.Rect(p1_x, p1_y, largura_barra, altura_barra)
+            p2_rect = pygame.Rect(p2_x, p2_y, largura_barra, altura_barra)
+
+            bola_x, bola_y, bola_vel_x, bola_vel_y = mover_bola(
+                bola_x, bola_y, bola_vel_x, bola_vel_y, tamanho_bola, p1_rect, p2_rect
+            )
+
+            marcou_ponto, pontos_1, pontos_2 = verificar_ponto(bola_x, tamanho_bola, pontos_1, pontos_2)
+            if marcou_ponto:
+                bola_x, bola_y = LARGURA // 2 - tamanho_bola // 2, ALTURA // 2 - tamanho_bola // 2
+                bola_vel_x *= -1 
+
+            # Verifica condição de encerramento
+            if pontos_1 >= pontos_para_vencer or pontos_2 >= pontos_para_vencer:
+                jogo_acabou = True
+
+            # Renderização dos elementos vivos
+            pygame.draw.aaline(tela, BRANCO, (LARGURA // 2, 0), (LARGURA // 2, ALTURA))
+            desenhar_barra(tela, p1_x, p1_y, largura_barra, altura_barra)
+            desenhar_barra(tela, p2_x, p2_y, largura_barra, altura_barra)
+            desenhar_bola(tela, bola_x, bola_y, tamanho_bola)
+            desenhar_placar(tela, fonte, pontos_1, pontos_2)
+
+        # O JOGO ACABOU (ALGUÉM GANHOU)
+        else:
+            if not historico_salvo:
+                salvar_historico(pontos_1, pontos_2)
+                historico_salvo = True
+
+            texto_fim = fonte.render("FIM DE JOGO", True, BRANCO)
+            texto_esc = fonte_menor.render("Pressione ESC para sair", True, BRANCO)
+            tela.blit(texto_fim, (LARGURA // 2 - 160, ALTURA // 2 - 50))
+            tela.blit(texto_esc, (LARGURA // 2 - 130, ALTURA // 2 + 20))
 
         pygame.display.flip()
         relogio.tick(FPS)
