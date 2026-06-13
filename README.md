@@ -1,109 +1,58 @@
-# Proposta Inicial do Jogo
+# Pong Arena PUC 
 
-O grupo pretende desenvolver um jogo inspirado no clássico Pong utilizando Python e a biblioteca Pygame. O jogo será composto por duas barras controladas pelos jogadores e uma bola que se movimenta pela tela. O objetivo é rebater a bola e impedir que ela ultrapasse a área de defesa do jogador, enquanto se tenta marcar pontos no adversário.
+O **Pong Arena PUC** é um jogo inspirado no clássico Pong, desenvolvido em Python utilizando a biblioteca Pygame. O projeto foi elaborado como trabalho prático, permitindo a aplicação de conceitos fundamentais de programação, como movimentação de objetos, detecção de colisões, controle de eventos do teclado, sistema de pontuação, uso de estruturas de dados e organização modular do código.
 
-A proposta foi escolhida por apresentar um escopo viável para o tempo disponível do projeto, permitindo a aplicação de conceitos fundamentais de programação, como movimentação de objetos, detecção de colisões, controle de eventos do teclado, sistema de pontuação e organização modular do código.
+## Integrantes do Grupo
+* Anderson José Rodrigues Leal
+* Kauã Rodrigues da Silva
+* Maria Eduarda Madeira Santana
+* Thales Pereira Leite
 
-Inicialmente, o jogo contará com um modo para dois jogadores, placar em tempo real e tela de encerramento ao final da partida. Caso haja tempo disponível, poderão ser adicionados recursos extras, como efeitos sonoros, menu inicial, aumento progressivo da dificuldade e melhorias visuais.
+---
 
+## Descrição Geral do Jogo
+Dois jogadores controlam barras laterais na tela e devem rebater uma bola que se movimenta continuamente. O objetivo é impedir que a bola ultrapasse sua área de defesa enquanto tenta marcar pontos no adversário. 
 
-## 1. Nome provisório do jogo
+**Objetivo do Jogador:** Marcar mais pontos que o adversário ao fazer a bola ultrapassar a barra de defesa do oponente.
 
-Pong Arena PUC
+### Regras Principais
+1. Cada jogador controla uma barra vertical.
+2. A bola deve ser rebatida pelas barras.
+3. Quando a bola ultrapassa uma barra, o adversário ganha um ponto.
+4. Após cada ponto, a bola retorna ao centro da tela.
+5. Vence o jogador que atingir a pontuação definida primeiro.
 
-## 2. Integrantes do grupo
+###  Condições de Vitória e Encerramento
+* **Vitória:** O jogador vence ao alcançar **20 pontos** antes do adversário.
+* **Encerramento:** A partida termina quando um dos jogadores atinge a pontuação máxima, exibindo a tela de fim de jogo e salvando os resultados da partida de forma persistente.
 
+---
 
-- Anderson José Rodrigues Leal
-- Kauã Rodrigues da Silva
-- Maria Eduarda Madeira Santana
-- Thales Pereira Leite
+## Controles
+* **Jogador 1 (Esquerda):** Teclas `W` (Cima) e `S` (Baixo)
+* **Jogador 2 (Direita):** Setas Direcionais `↑` (Cima) e `↓` (Baixo)
+* **Sair do Jogo:** Tecla `ESC`
 
-## 3. Tipo de jogo
+---
 
-> Pong
+##  Elementos do Jogo
+* **Jogadores (Elementos Principais):** Duas barras verticais controladas através do teclado.
+* **Objeto de Interação:** A bola, que quica nas barras e nas bordas superior e inferior da tela.
+* **Desafio:** Acompanhar o movimento da bola e reagir rapidamente para impedir que ela ultrapasse a barra de defesa.
+* **Progresso e Dados:** O placar fica visível durante toda a partida em tempo real. Ao final, o histórico do vencedor e a pontuação são gravados no arquivo `historico.txt`.
 
-## 4. Descrição geral do jogo
+---
 
-> O jogo será baseado no clássico Pong. Dois jogadores controlarão barras laterais na tela e deverão rebater uma bola que se movimenta continuamente. O objetivo é impedir que a bola ultrapasse sua área de defesa enquanto tenta marcar pontos no adversário. A velocidade da bola pode aumentar ao longo da partida, tornando o jogo mais desafiador.
+## 📂 Organização do Código
+O código foi estruturado de forma modular para facilitar a manutenção e aplicação de testes:
 
-## 5. Objetivo do jogador
+* `main.py`: Inicia o jogo, executa o loop principal e gerencia a condição de vitória.
+* `src/jogo.py`: Controla a movimentação e a física de colisões da bola.
+* `src/config.py`: Controla a movimentação das barras dos jogadores.
+* `src/funcoes.py`: Armazena configurações globais como tamanho da tela, cores e velocidade (FPS).
+* `src/dados.py`: Gerencia a pontuação, exibição do placar e salvamento em arquivo usando Dicionários.
+* `src/sprites.py`: Responsável por desenhar os elementos visuais na tela.
+* `tests/test_logica.py`: Testes automatizados da lógica de pontuação usando `pytest`.
 
-> Marcar mais pontos que o adversário ao fazer a bola ultrapassar a barra de defesa do oponente.
+---
 
-## 6. Regras principais
-
-- Regra 1: Cada jogador controla uma barra vertical.
-- Regra 2: A bola deve ser rebatida pelas barras.
-- Regra 3: Quando a bola ultrapassa uma barra, o adversário ganha um ponto.
-- Regra 4: Após cada ponto, a bola retorna ao centro da tela.
-- Regra 5: Vence o jogador que atingir a pontuação definida primeiro.
-
-## 7. Condição de vitória
-
-> O jogador vence ao alcançar 10 pontos antes do adversário.
-
-## 8. Condição de derrota ou encerramento
-
-> A partida termina quando um dos jogadores atingir a pontuação máxima estabelecida para a vitória.
-
-## 9. Elementos previstos no jogo
-
-Duas barras verticais controladas pelos jogadores através do teclado.
-
-## Jogador ou elemento principal
-
-> Duas barras verticais controladas pelos jogadores através do teclado.
-
-## Obstáculos, inimigos ou desafios
-
-> O principal desafio será acompanhar o movimento da bola e reagir rapidamente para impedir que ela ultrapasse a barra de defesa.
-
-## Itens, alvos ou objetos de interação
-
-> A bola é o principal objeto de interação, quicando nas barras e nas bordas superior e inferior da tela.
-
-## Pontuação, vidas, tempo ou progresso
-
-> Cada vez que um jogador marca um ponto, sua pontuação aumenta em uma unidade. O placar ficará visível durante toda a partida.
-
-## 10. Controles previstos
-
-Controles do grupo:
-
-- W e S: mover a barra do jogador 1 para cima e para baixo.
-- Seta: Seta para cima e seta para baixo, mover a barra do jogador 2.
-- ESC: sair do jogo.
-
-## 11. Organização inicial do código
-
-
-- `main.py`: inicia o jogo e executa o loop principal;
-- `src/jogo.py`: controla a movimentação e colisões da bola;
-- `src/config.py`: controla as barras dos jogadores;
-- `src/funcoes.py`: armazena configurações como tamanho da tela, cores e velocidade;
-- `src/dados.py`: gerencia a pontuação e exibição do placar.
-
-## 12. Recursos externos previstos
-
-> Pretendemos utilizar sons gratuitos para colisões e pontuação, além de tutoriais como referência para implementação de funcionalidades no Pygame.
-
-## 13. Principais dificuldades esperadas
-
-Dificuldades previstas:
-
-- Dificuldade 1: Implementar corretamente as colisões entre a bola e as barras.
-- Dificuldade 2: Controlar a movimentação da bola de forma fluida.
-- Dificuldade 3: Organizar o código e integrar as diferentes partes do projeto.
-
-## 14. Escopo mínimo para a entrega final
-
-
-> A versão mínima do jogo terá duas barras controladas pelo teclado, uma bola em movimento, sistema de colisão, placar funcional e tela de fim de partida quando um jogador atingir a pontuação necessária para vencer.
-
-## 15. Possíveis melhorias, caso haja tempo
-
-
-- Melhoria 1: Menu inicial e tela de pausa.
-- Melhoria 2: Aumento gradual da velocidade da bola durante a partida.
-- Melhoria 3: Efeitos sonoros e elementos visuais mais elaborados.
