@@ -1,12 +1,8 @@
 # src/funcoes.py
-
-# Configurações do Ecrã
 LARGURA = 800
 ALTURA = 600
+FPS = 60
 
-# Cores em RGB
+# Cores (RGB)
 PRETO = (0, 0, 0)
 BRANCO = (255, 255, 255)
-
-# Velocidade do jogo (FPS)
-FPS = 60

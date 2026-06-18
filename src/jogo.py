@@ -2,22 +2,22 @@
 import pygame
 from src.funcoes import ALTURA
 
-#Movimento da bola e verificação das colisões com as bordas e barras.
-
 def mover_bola(x, y, vel_x, vel_y, tamanho, p1_rect, p2_rect):
-    
+    """Movimenta a bola e verifica colisões. Retorna se houve colisão."""
     x += vel_x
     y += vel_y
+    colidiu = False
 
-    # se a bola bater no topo ou na base
+    # Colisão com o topo ou base
     if y <= 0 or y >= ALTURA - tamanho:
         vel_y *= -1
+        colidiu = True
 
-    # dimensôes da bola
     bola_rect = pygame.Rect(x, y, tamanho, tamanho)
 
-    # Colisão da bola com a barra
+    # Colisão com as barras
     if bola_rect.colliderect(p1_rect) or bola_rect.colliderect(p2_rect):
         vel_x *= -1
+        colidiu = True
 
-    return x, y, vel_x, vel_y
+    return x, y, vel_x, vel_y, colidiu

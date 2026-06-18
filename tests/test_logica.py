@@ -1,31 +1,23 @@
-from src.funcoes import calcular_pontos, jogador_perdeu, limitar_valor
+# tests/test_logica.py
+import pygame
+from src.dados import verificar_ponto
+from src.jogo import mover_bola
 
+def test_ponto_jogador_1():
+    marcou, p1, p2 = verificar_ponto(bola_x=810, tamanho=15, pontos_1=0, pontos_2=0)
+    assert marcou == True
+    assert p1 == 1  
+    assert p2 == 0
 
-def test_calcular_pontos():
-    """Deve somar corretamente os pontos atuais com os pontos ganhos."""
-    assert calcular_pontos(10, 5) == 15
+def test_ponto_jogador_2():
+    marcou, p1, p2 = verificar_ponto(bola_x=-10, tamanho=15, pontos_1=0, pontos_2=0)
+    assert marcou == True
+    assert p1 == 0
+    assert p2 == 1  
 
-
-def test_jogador_perdeu_com_zero_vidas():
-    """Deve indicar derrota quando o total de vidas chega a zero."""
-    assert jogador_perdeu(0) is True
-
-
-def test_jogador_nao_perdeu_com_vidas():
-    """Nao deve indicar derrota quando o jogador ainda tem vidas."""
-    assert jogador_perdeu(3) is False
-
-
-def test_limitar_valor_abaixo_do_minimo():
-    """Deve retornar o limite minimo quando o valor informado for menor."""
-    assert limitar_valor(-5, 0, 100) == 0
-
-
-def test_limitar_valor_acima_do_maximo():
-    """Deve retornar o limite maximo quando o valor informado for maior."""
-    assert limitar_valor(150, 0, 100) == 100
-
-
-def test_limitar_valor_dentro_do_intervalo():
-    """Deve manter o valor original quando ele ja estiver no intervalo."""
-    assert limitar_valor(50, 0, 100) == 50
+def test_colisao_topo():
+    p1_rect = pygame.Rect(0, 0, 10, 10)
+    p2_rect = pygame.Rect(0, 0, 10, 10)
+    _, _, _, vel_y, colidiu = mover_bola(400, 0, 5, -5, 15, p1_rect, p2_rect)
+    assert colidiu == True
+    assert vel_y == 5

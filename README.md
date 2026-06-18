@@ -7,7 +7,7 @@ A proposta foi escolhida por apresentar um escopo viável para o tempo disponív
 Inicialmente, o jogo contará com um modo para dois jogadores, placar em tempo real e tela de encerramento ao final da partida. Caso haja tempo disponível, poderão ser adicionados recursos extras, como efeitos sonoros, menu inicial, aumento progressivo da dificuldade e melhorias visuais.
 
 
-## 1. Nome provisório do jogo
+## 1. Nome do jogo
 
 Pong Arena PUC
 
