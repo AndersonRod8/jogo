@@ -1,13 +1,25 @@
-# Imagens
+## Imagens utilizadas
 
-Pasta destinada a sprites, fundos, icones e outros elementos visuais.
+Atualmente o projeto não utiliza imagens externas.
 
-## Conteudo atual
+Todos os elementos gráficos são renderizados diretamente pelo Pygame através de primitivas gráficas desenhadas em tempo de execução.
 
-- `spritesheet.bmp`: spritesheet base do template.
+## Elementos desenhados por código
 
-## Recomendações
+- Barra do Jogador 1
+- Barra do Jogador 2
+- Bola
+- Linha central da quadra
+- Textos e placar
 
-- Separe imagens por tema quando o projeto crescer.
-- Mantenha dimensoes e padroes consistentes para facilitar colisao e animacao.
-- Prefira formatos com transparencia quando necessario (ex.: `.png`).
+## Observações
+
+A pasta permanece disponível para futuras implementações de:
+
+- Sprites
+- Fundos personalizados
+- Ícones
+- Logotipos
+- Elementos visuais adicionais
+
+Caso imagens externas sejam adicionadas futuramente, recomenda-se documentar sua origem e licença de uso.
