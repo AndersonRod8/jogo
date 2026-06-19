@@ -44,7 +44,7 @@ def main():
 
     # Estado Inicial do Jogo
     pontos_1, pontos_2 = 0, 0
-    pontos_para_vencer = 20
+    pontos_para_vencer = 10
     jogo_acabou = False
     historico_salvo = False
 

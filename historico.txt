@@ -1,2 +1,5 @@
 [18/06/2026 18:48:45] Vencedor: Jogador 2 | Placar: 16 x 20
 [18/06/2026 19:08:25] Vencedor: Jogador 1 | Placar: 20 x 6
+[19/06/2026 15:19:30] Vencedor: Jogador 1 | Placar: 20 x 7
+[19/06/2026 15:21:20] Vencedor: Jogador 1 | Placar: 20 x 0
+[19/06/2026 15:25:07] Vencedor: Jogador 1 | Placar: 10 x 0
