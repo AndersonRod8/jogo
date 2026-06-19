@@ -1,9 +1,10 @@
 # Fontes
 
-Armazene aqui as fontes utilizadas no jogo (ex.: `.ttf`, `.otf`).
+## Fontes utilizadas
 
-## Recomendações
+O projeto não utiliza fontes tipográficas externas (.ttf ou .otf).
 
-- Use no maximo 1 a 2 fontes para manter consistencia visual.
-- Verifique licenca de uso antes de adicionar fontes externas.
-- Nomeie os arquivos de forma clara (ex.: `fonte_titulo.ttf`).
+Toda a interface textual do jogo utiliza a fonte padrão disponibilizada pelo Pygame por meio da função:
+
+```python
+pygame.font.Font(None, tamanho)
