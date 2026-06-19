@@ -1,18 +1,28 @@
 # Testes
 
-Esta pasta contem testes automatizados do projeto.
+Esta pasta contém testes automatizados do projeto utilizando pytest.
 
-## Arquivos
+## Objetivo
 
-- `test_logica.py`: valida funcoes puras de logica em `src/funcoes.py`.
+Validar funções de lógica do jogo, como:
+- Contagem de pontos
+- Condições de vitória
+- Movimentação e colisões
 
 ## Como executar
+
+No terminal:
+
+```bash
+pytest
+```
+
+ou
 
 ```bash
 python -m pytest
 ```
 
-## Boas praticas
+## Observação
 
-- Crie testes para toda regra de pontuacao, vidas e condicoes de fim de jogo.
-- Prefira funcoes pequenas e testaveis no modulo `src/funcoes.py`.
+Os testes foram feitos para funções separadas da interface gráfica, facilitando a validação da lógica do jogo.
